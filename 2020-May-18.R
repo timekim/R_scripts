@@ -8,10 +8,9 @@ theme_set(theme_minimal())
 
 tt_output <- tt_load("2021-05-18")
 
-survey <- tt_ouput$survey
+survey <- tt_output$survey
 
-survey <- survey %>% 
-  mutate(timestamp = mdy_hms(timestamp))
+survey$timestamp <- mdy_hms(survey$timestamp)
 
 survey %>% 
   mutate(how_old_are_you = how_old_are_you %>% 
